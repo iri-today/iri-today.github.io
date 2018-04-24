@@ -9,18 +9,27 @@
     <meta name="description" content={% if page.description %}{{ page.description }}{% else %}{{ site.data.global.description }}{% endif %}>
 
     <!-- Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83092306-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-83092306-2');
+    </script>
 
 
     <!-- Open Graph Protocol (Social Media) -->
+    <meta property="og:url" content="{{page.url | prepend: site.url}}" />
+    <meta property="og:type"   content="article" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.global.title }}{% endif %}" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={{ site.data.global.site-name }} />
-    <meta property="og:title" content={% if page.title %}{{ page.title }}{% else %}{{ site.data.global.title }}{% endif %} />
-    <meta property="og:description" content= {{ site.data.global.description }}/>
-    <meta property="og:url" content="page.url" />
-    <meta property="og:image" content="/img/icon/face-icon-transparent.png" />
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.global.description }}{% endif %}"/>
+    <meta property="og:image" content="{% if page.image %}{{ page.image | prepend: site.url }}{% else %}'https://theshapeofcollege.com/img/icon/shape-of-icon.png'{% endif %}" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/img/icon/face-icon-transparent.png">
+    <link rel="icon" type="image/png" href="/img/iri-icon.png">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
